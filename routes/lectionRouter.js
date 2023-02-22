@@ -40,11 +40,14 @@ router.patch("/updatematerial", async (req, res) => {
       { _id: list._id },
       {
         $set: {
-          active: list.active,
-          editable: list.editable,
-          name: list.name,
-          usersId: list.usersId,
           complete: list.complete,
+          documentId: list.documentId,
+          order: list.order,
+          owner: list.owner,
+          pollId: list.pollId,
+          pollOptions: list.pollOptions,
+          pollQuestion: list.pollQuestion,
+          text: list.text,
         },
       }
     );
