@@ -59,6 +59,26 @@ router.patch("/updatematerial", async (req, res) => {
   }
 });
 
+router.patch("/updatematerial/:id", async (req, res) => {
+  try {
+    const list = req.body;
+    console.log(list);
+    const lection = await Lection.findOneAndUpdate(
+      { _id: list._id },
+      {
+        $set: {
+          documentId: list.documentId,
+        },
+      }
+    );
+    await lection.save();
+
+    res.json(lection);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.patch("/updatestoplection", async (req, res) => {
   try {
     const params = req.body;
