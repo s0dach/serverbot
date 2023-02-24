@@ -98,7 +98,7 @@ router.patch("/updatestoplection", async (req, res) => {
   }
 });
 
-router.delete("/deletelection", async (req, res) => {
+router.delete("/deletelection/:id", async (req, res) => {
   try {
     const lection = await Lection.findOneAndDelete({ _id: req.params.id });
     res.json(lection);
