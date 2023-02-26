@@ -86,7 +86,7 @@ router.delete("/deletelist/:id", async (req, res) => {
   try {
     console.log(req.params.id);
     const lection = await List.findOneAndDelete({ _id: req.params.id });
-    const list = await Lection.deleteMany({ _id: req.params.id });
+    const list = await Lection.findOneAndDelete({ owner: req.params.id });
     res.json(lection);
     res.json(list);
   } catch (err) {
