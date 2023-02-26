@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = new Router();
 const List = require("../models/List");
+const Lection = require("../models/Lection");
 
 router.post("/addlist", async (req, res) => {
   try {
@@ -85,7 +86,9 @@ router.delete("/deletelist/:id", async (req, res) => {
   try {
     console.log(req.params.id);
     const lection = await List.findOneAndDelete({ _id: req.params.id });
+    const list = await Lection.deleteMany({ _id: req.params.id });
     res.json(lection);
+    res.json(list);
   } catch (err) {
     console.log(err);
   }
