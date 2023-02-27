@@ -53,6 +53,15 @@ router.get("/getmaterial", async (req, res) => {
   }
 });
 
+router.get("/getmaterials", async (req, res) => {
+  try {
+    const lection = await Lection.find();
+    res.json(lection);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.patch("/updatematerial", async (req, res) => {
   try {
     const list = req.body;
