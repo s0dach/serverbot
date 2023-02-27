@@ -21,6 +21,23 @@ router.post("/addlist", async (req, res) => {
   }
 });
 
+router.post("/dublicatelist", async (req, res) => {
+  try {
+    const lection = new List({
+      name: req.body.name,
+      usersId: [],
+      active: false,
+      editable: false,
+      published: 0,
+    });
+
+    await lection.save();
+    res.json(lection);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.patch("/updatelist", async (req, res) => {
   try {
     const list = req.body;
