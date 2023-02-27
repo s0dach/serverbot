@@ -7,7 +7,7 @@ const schema = new Schema({
   complete: { type: Boolean, required: true },
   documentId: { type: String, required: true },
   pollQuestion: { type: String },
-  pollOptions: { type: Array || undefined },
+  pollOptions: { type: Array },
   pollId: { type: Array },
 });
 

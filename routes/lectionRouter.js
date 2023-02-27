@@ -11,7 +11,27 @@ router.post("/addmaterial", async (req, res) => {
       documentId: 0,
       order,
       complete: false,
-      pollOptions: undefined,
+    });
+    await lection.save();
+
+    res.json(lection);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
+router.post("/addpoll", async (req, res) => {
+  try {
+    const lection = new Lection({
+      order: req.body.order,
+      owner: req.body.owner,
+      text: req.body.text,
+      documentId: 0,
+      pollId: req.body.pollId,
+      pollOptions: req.body.pollOptions,
+      pollQuestion: req.body.pollQuestion,
+      optionsReply: req.body.optionsReply,
+      complete: false,
     });
     await lection.save();
 
@@ -44,9 +64,9 @@ router.patch("/updatematerial", async (req, res) => {
           documentId: list.documentId,
           order: list.order,
           owner: list.owner,
-          pollId: list.pollId,
-          pollOptions: list.pollOptions,
-          pollQuestion: list.pollQuestion,
+          pollId: list.pollId || null,
+          pollOptions: list.pollOptions || null,
+          pollQuestion: list.pollQuestion || null,
           text: list.text,
         },
       }
