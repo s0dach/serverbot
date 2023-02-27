@@ -77,6 +77,7 @@ router.patch("/updatematerial", async (req, res) => {
           pollOptions: list.pollOptions,
           pollQuestion: list.pollQuestion,
           text: list.text,
+          optionsReply: list.optionsReply,
         },
       }
     );
