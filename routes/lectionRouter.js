@@ -73,9 +73,9 @@ router.patch("/updatematerial", async (req, res) => {
           documentId: list.documentId,
           order: list.order,
           owner: list.owner,
-          pollId: list.pollId || null,
-          pollOptions: list.pollOptions || null,
-          pollQuestion: list.pollQuestion || null,
+          pollId: list.pollId,
+          pollOptions: list.pollOptions,
+          pollQuestion: list.pollQuestion,
           text: list.text,
         },
       }

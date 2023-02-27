@@ -9,6 +9,7 @@ const schema = new Schema({
   pollQuestion: { type: String },
   pollOptions: { type: Array },
   pollId: { type: Array },
+  optionsReply: { type: Array },
 });
 
 module.exports = model("Lection", schema);
